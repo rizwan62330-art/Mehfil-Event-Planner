@@ -1,0 +1,9 @@
+import {Menu, X, ArrowUpRight} from 'lucide-react';
+import Logo from '../ui/Logo';
+import Button from '../ui/Button';
+
+export default function Header({menu,setMenu,user,setAuthMode,setAuthOpen,setClaimOpen,navigate,notify,signOut}){
+  return (
+<header className="sticky top-0 z-50 border-b border-[#e9e7df] bg-[#f9f8f4]/95 backdrop-blur-md"><div className="container-wide flex h-[82px] items-center justify-between"><Logo/><nav className="hidden items-center gap-9 lg:flex" aria-label="Main navigation"><button onClick={()=>navigate('home')} className="navlink">Home</button><button onClick={()=>navigate('venues')} className="navlink">Explore venues</button><button onClick={()=>navigate('how-it-works')} className="navlink">How it works</button><button onClick={()=>navigate('about')} className="navlink">About us</button></nav><div className="hidden items-center gap-4 lg:flex">{user?<button onClick={signOut} className="navlink">Sign out ({user.name})</button>:<button onClick={()=>{setAuthMode('signin');setAuthOpen(true)}} className="navlink">Log in</button>}<Button onClick={()=>setClaimOpen(true)}>List your venue <ArrowUpRight size={16}/></Button></div><button className="lg:hidden" onClick={()=>setMenu(!menu)} aria-label={menu?'Close menu':'Open menu'}>{menu?<X/>:<Menu/>}</button></div>{menu&&<div className="border-t bg-[#f9f8f4] px-6 py-5 lg:hidden"><div className="flex flex-col gap-5">{[['Home','home'],['Explore venues','venues'],['How it works','how-it-works'],['About us','about']].map(([label,id])=><button key={id} onClick={()=>navigate(id)} className="text-left font-semibold">{label}</button>)}<button onClick={()=>{setMenu(false);setAuthOpen(true)}} className="text-left font-semibold">{user?'Account':'Log in'}</button><Button className="self-start" onClick={()=>{setMenu(false);setClaimOpen(true)}}>List your venue <ArrowUpRight size={15}/></Button></div></div>}</header>
+  );
+}

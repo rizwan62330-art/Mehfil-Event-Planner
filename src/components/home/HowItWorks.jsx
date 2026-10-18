@@ -1,0 +1,7 @@
+import {Search, Star, Heart} from 'lucide-react';
+import SectionHeading from '../ui/SectionHeading';
+export default function HowItWorks({}){
+  return (
+<section id="how-it-works" className="scroll-mt-24 bg-[#eff0e7] py-24"><div className="container-wide"><SectionHeading eyebrow="Made simple" title={<>Planning begins with <em className="text-[#b38a56]">a place</em></>} desc="From the first idea to the perfect celebration, we're here to make venue discovery simple." center/><div className="mt-16 grid gap-10 md:grid-cols-3">{[{n:'01',icon:Search,title:'Discover venues',desc:'Search by location, occasion, and the atmosphere you love.'},{n:'02',icon:Star,title:'Explore & compare',desc:'Take a closer look at venue details, amenities, and shared experiences.'},{n:'03',icon:Heart,title:'Save your favorites',desc:'Keep track of spaces you love while you plan your special day.'}].map(x=><div key={x.n} className="text-center"><div className="relative mx-auto mb-6 grid h-24 w-24 place-items-center rounded-full border border-[#d2d9cb] bg-white text-forest"><x.icon size={31} strokeWidth={1.4}/><span className="absolute -right-1 -top-1 grid h-8 w-8 place-items-center rounded-full bg-gold text-xs font-bold text-white">{x.n}</span></div><h3 className="font-display text-2xl text-forest">{x.title}</h3><p className="mx-auto mt-3 max-w-[290px] text-sm leading-7 text-[#687268]">{x.desc}</p></div>)}</div></div></section>
+  );
+}
