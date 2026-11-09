@@ -1,0 +1,2 @@
+import {Sparkles} from 'lucide-react';
+export default function Logo({light=false}){return <a href="#home" className={`inline-flex items-center gap-2.5 font-display text-[27px] font-semibold tracking-tight ${light?'text-white':'text-forest'}`} aria-label="Mehfil home"><span className={`grid h-10 w-10 place-items-center rounded-full border ${light?'border-white/50':'border-forest/30'}`}><Sparkles size={21} strokeWidth={1.6}/></span>mehfil<span className="-ml-2 self-end pb-2 font-sans text-xs text-gold">.</span></a>}

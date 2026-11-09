@@ -1,0 +1,6 @@
+import Logo from '../ui/Logo';
+export default function Footer({navigate,setClaimOpen,setAuthOpen}){
+  return (
+<footer className="bg-[#14291f] text-white"><div className="container-wide grid gap-12 border-b border-white/15 py-16 md:grid-cols-[1.5fr_1fr_1fr]"><div><Logo light/><p className="mt-5 max-w-xs text-sm leading-7 text-white/60">Beautiful spaces. Meaningful moments. A simpler way to discover where your story unfolds.</p></div><div><h3 className="mb-5 text-sm font-bold">Explore</h3><div className="flex flex-col items-start gap-3 text-sm text-white/65"><button onClick={()=>navigate('venues')}>Browse venues</button><button onClick={()=>navigate('how-it-works')}>How it works</button><button onClick={()=>navigate('about')}>Our story</button></div></div><div><h3 className="mb-5 text-sm font-bold">Get involved</h3><div className="flex flex-col items-start gap-3 text-sm text-white/65"><button onClick={()=>setClaimOpen(true)}>Claim a listing</button><button onClick={()=>setAuthOpen(true)}>Member sign in</button><span>Contact details coming soon</span></div></div></div><div className="container-wide flex flex-col justify-between gap-3 py-6 text-xs text-white/45 sm:flex-row"><p>© {new Date().getFullYear()} Mehfil Event Planners. All rights reserved.</p><p>Designed with care for meaningful celebrations.</p></div></footer>
+  );
+}
